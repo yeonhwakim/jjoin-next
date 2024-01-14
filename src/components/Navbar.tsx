@@ -9,6 +9,7 @@ import SearchIcon from "./ui/icons/SearchIcon";
 import SearchFillIcon from "./ui/icons/SearchFillIcon";
 import NewIcon from "./ui/icons/NewIcon";
 import NewFillIcon from "./ui/icons/NewFillIcon";
+import ColorButton from "./ui/ColorButton";
 
 const menu = [
   { href: "/", icon: <HomeIcon />, clickedIcon: <HomeFillIcon /> },
@@ -31,9 +32,9 @@ export default function Navbar() {
               <Link href={href}>{pathname === href ? clickedIcon : icon}</Link>
             </li>
           ))}
+          <ColorButton text="Sing in" onClick={() => false} />
         </ul>
       </nav>
-      <button>Sign in</button>
     </div>
   );
 }
