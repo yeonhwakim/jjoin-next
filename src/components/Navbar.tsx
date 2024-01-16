@@ -13,6 +13,8 @@ import NewIcon from "./ui/icons/NewIcon";
 import NewFillIcon from "./ui/icons/NewFillIcon";
 import ColorButton from "./ui/ColorButton";
 
+import Avatar from "./Avatar";
+
 const menu = [
   { href: "/", icon: <HomeIcon />, clickedIcon: <HomeFillIcon /> },
   { href: "/search", icon: <SearchIcon />, clickedIcon: <SearchFillIcon /> },
@@ -35,6 +37,7 @@ export default function Navbar() {
               <Link href={href}>{pathname === href ? clickedIcon : icon}</Link>
             </li>
           ))}
+          <Avatar url={session?.user?.image} />
           {session ? (
             <ColorButton text="Sign Out" onClick={() => signOut()} />
           ) : (
