@@ -16,6 +16,7 @@ export default function SignIn({ providers, callbackUrl }: Props) {
           key={name}
           text="Sign in with Google"
           onClick={() => signIn(id, { callbackUrl })}
+          size={"big"}
         />
       ))}
     </>
