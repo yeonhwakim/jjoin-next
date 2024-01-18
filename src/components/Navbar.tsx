@@ -24,6 +24,7 @@ const menu = [
 export default function Navbar() {
   const pathname = usePathname();
   const { data: session } = useSession();
+  const user = session?.user;
 
   return (
     <div className="flex justify-between items-center px-6 ">
@@ -37,12 +38,20 @@ export default function Navbar() {
               <Link href={href}>{pathname === href ? clickedIcon : icon}</Link>
             </li>
           ))}
-          <Avatar url={session?.user?.image} />
-          {session ? (
-            <ColorButton text="Sign Out" onClick={() => signOut()} />
-          ) : (
-            <ColorButton text="Sign In" onClick={() => signIn()} />
+          {user && (
+            <li>
+              <Link href={`/user/${user.name}`}>
+                <Avatar image={user?.image} />
+              </Link>
+            </li>
           )}
+          <li>
+            {session ? (
+              <ColorButton text="Sign Out" onClick={() => signOut()} />
+            ) : (
+              <ColorButton text="Sign In" onClick={() => signIn()} />
+            )}
+          </li>
         </ul>
       </nav>
     </div>
