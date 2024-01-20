@@ -28,7 +28,7 @@ export const authOptions: NextAuthOptions = {
       }
       addUser({
         id,
-        name: name,
+        name: name || "",
         username: email.split("@")[0],
         email,
         image,
